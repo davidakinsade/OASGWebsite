@@ -1,0 +1,1829 @@
+/* General Styles */
+body {
+  font-family:"Poppins", sans-serif;
+  /* font-family:"Poppins", sans-serif !important;         //         Example of "!important" rule: External CSS will apply, no matter the order of the internal HTML and extrnal CSS */
+  margin: 0;
+  height: 100%;
+  line-height: 1.8;
+
+
+  background-image: url('images/doodlebackground.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat; /* Ensure it doesn't repeat */
+  background-color: #ffffff; /* Fallback color */
+}
+
+
+
+/* ---------------------------- FADES -------------------------------- */
+.fade-in {
+  opacity: 0; /* Element is initially invisible */
+  transform: translateY(25px); /* Optional: Slide the element up a bit */
+  transition: opacity 0.3s ease-out , transform 0.6s ease-out; /* Smooth animation */
+}
+
+/* Class to apply when the element is in view */
+.fade-in.show {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Return to original position */
+}
+
+/* Fade-in from the left */
+.fade-in-left {
+  transform: translateX(-50px); /* Initially shift to the left */
+}
+
+.fade-in-left.show {
+  opacity: 1;
+  transform: translateX(0); /* Return to original position */
+}
+
+/* Fade-in from the right */
+.fade-in-right {
+  transform: translateX(50px); /* Initially shift to the right */
+}
+
+.fade-in-right.show {
+  opacity: 1;
+  transform: translateX(0); /* Return to original position */
+}
+
+/* .fade-in.hide {
+  opacity: 0;
+  transform: translateY(90px);  Slide down when fading out 
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+} */
+
+
+
+
+
+.w3-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the navbar is on top */
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+
+
+.w3-bar {
+  background-color: #ebebeb;
+  display: flex; /* Use Flexbox for layout */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space out the left and right items */
+  padding: 1px; /* Add some padding for the navbar */
+  border-bottom: 2px solid #e7cd39c0;
+}
+
+/* Adjust the image container */
+.w3-bar img {
+  margin-left: 10px; /* Adjust this value to push the logo left without affecting other elements */
+}
+
+/* Ensure the right section stays in place */
+.w3-right {
+  margin-left: auto; /* Keeps the right-side buttons pinned in their area */
+  display: flex; /* Ensure proper alignment */
+  gap: 50px; /* Spacing between buttons */
+}
+
+
+.w3-right .w3-bar-item:last-child {
+  margin-left: auto; /* Push the Contact button to the far right */
+}
+
+
+.team-section,
+.our-vision-section {
+  background-color: transparent; /* Allow the background image to show */
+  position: relative;
+  z-index: 1;
+  padding: 88px 16px;
+}
+
+/* Example of semi-transparent overlay */
+.our-vision-section::before, .team-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  z-index: -1; /* Make sure it stays behind the content */
+}
+
+
+/* Background Image */
+.bgimg-1 {
+  background-image: url('/images/doodlebackground.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+  opacity: 1;
+  animation: fadeIn 1.5s ease-in forwards;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  transition: opacity 2s ease; /* Smooth fade-in effect */
+
+
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
+/* Header Section - Text Overlay */
+.header .text-overlay {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 30px; /* Add padding to the left side */
+  padding-right: 30px; /* Optional: add padding to the right for balance */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Adjusted text styling in Header */
+.header .text-overlay .w3-xxxlarge,
+.header .text-overlay .w3-xlarge,
+.header .text-overlay .w3-large {
+  color: #ffffff; /* White text */
+  font-weight: bold; /* Bold text */
+}
+
+
+
+/* Background image styling for About Us section */
+/* About Us Section */
+.about-us-section {
+  position: relative;
+  width: 100%;
+  padding: 88px 16px;
+  color: rgb(43, 43, 43);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(0px); /* Blur effect */
+  opacity: 0.2; /* Adjust opacity for readability */
+  z-index: -1; /* Ensure it stays behind content */
+}
+
+.about-content-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Space between columns */
+  width: 100%;
+  max-width: 1200px;
+  background-color: rgba(255, 255, 255, 0.35); /* Semi-transparent overlay */
+  padding: 40px 20px;
+  z-index: 1;
+}
+
+/* Left Column - Text Content */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Right Column - Image */
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%; /* Responsive image width */
+  max-width: 100%; /* Limit max width */
+}
+
+/* ABOUT US Heading */
+.about-us-section h1 {
+  font-size: 46px;
+  font-weight: bold;
+  color: #244d26; /* Darker green */
+  margin-bottom: 20px;
+}
+
+/* ABOUT US Paragraph */
+.about-us-section p {
+  font-size: 15px;
+  color: rgb(43, 43, 43);
+  line-height: 1.6;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* LEARN MORE Button */
+.about-button .learn-more-btn {
+  display: inline-block;
+  background-color: #357037;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: 2px solid #244d26;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+}
+
+.about-button .learn-more-btn:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 768px) {
+  .about-content-wrapper {
+      grid-template-columns: 1fr; /* Stack columns */
+  }
+  .about-us-section h1 {
+      font-size: 28px;
+  }
+  .about-us-section p {
+      font-size: 16px;
+  }
+  .about-button .learn-more-btn {
+      font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-us-section h1 {
+      font-size: 24px;
+  }
+  .about-us-section p {
+      font-size: 15px;
+  }
+  .about-button .learn-more-btn {
+      font-size: 16px;
+  }
+}
+
+
+
+
+/* ---------------------------------------------------------------------------- */
+
+
+.promo-section {
+  background-color: #1e421f; /* Similar background color */
+  padding: 50px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #e7cd39c0;
+  border-bottom: 5px solid #e7cd39c0;
+}
+
+.promo-section .promo-text {
+  font-size: 1.5rem;
+  color: #fff;
+  display: inline-block;
+  width: 70%;
+}
+
+.promo-section .promo-button {
+  display: inline-block;
+  width: 30%;
+  text-align: right; /* Aligns the button to the right */
+}
+
+.join-us-button {
+  display: inline-block;
+  background-color: #357037; /* Green background */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 2px solid #244d26; /* Green border */
+  border-radius: 8px; /* Optional: Rounded corners */
+  transition: background-color 0.3s ease;
+  font-size: 20px; /* Font size */
+  font-weight: bold;
+}
+
+.join-us-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .promo-section .promo-text,
+  .promo-section .promo-button {
+      width: 100%;
+      text-align: center;
+  }
+
+  .promo-section .promo-button {
+      margin-top: 15px;
+  }
+}
+
+/* --------------- Centered Quote Above the 'Our Vision' Section --------------- */
+
+.centered-quote {
+  text-align: center; /* Center the text */
+  margin-bottom: 70px; /* Space below the quote */
+  margin-top: 35px; /* Space below the quote */
+
+}
+
+.centered-quote p {
+  font-size: 1.3rem; /* Adjust font size as needed */
+  color: rgb(65, 65, 65); /* Text color */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  font-weight: 200;
+}
+
+
+/* ----------------------------------------- Our Vision Styling ------------------------------------------- */
+
+/* Background Image and Blur Overlay for Our Vision Section */
+/* Our Vision Section Styling */
+.our-vision-section {
+  position: relative;
+  padding: 88px 16px;
+  color: rgb(43, 43, 43);
+  overflow: hidden;
+}
+
+/* Blurred background image overlay */
+.our-vision-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/image11.JPG');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  z-index: -1; /* Ensure it stays behind the content */
+  opacity: 0.6;
+}
+
+/* Card-style background behind each mission and vision item */
+.our-vision-section .mission-vision {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(26, 26, 26, 0.85); /* Card background for readability */
+  border-radius: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+/* .our-vision-section .our-vision-image{
+  max-height: 850px;
+
+} */
+.our-vision-section h2 {
+  font-size: 21px;
+}
+
+.our-vision-section h2 b {
+  color: #275529;
+}
+
+.our-vision-section .mission-vision p {
+  flex: 1;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.our-vision-section .lightbulb-icon {
+  flex-shrink: 0;
+  width: 90px;
+  height: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .our-vision-section .mission-vision {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .our-vision-section .lightbulb-icon {
+      margin-top: 10px;
+      width: 60px;
+  }
+}
+
+
+
+
+
+
+
+/* -------------------------------------------- Team Section Styling --------------------------------------- */
+
+.team-section {
+  /* /* background-color: transparent;
+  padding: 88px 16px; */
+  color: rgb(255, 255, 255);
+  background-image: url("/images/doodlebackground.jpg"); /* Add the background image */
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* Optional */
+}
+
+/* Team Heading Styling */
+.team-heading {
+  text-align: center; /* Center align the heading */
+  font-size: 2.5rem; /* Adjust the font size */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 10px; /* Space below the heading */
+  color: #000000; /* Text color */
+}
+
+/* Team Card Styling */
+.team-card {
+  background-color: rgb(236, 234, 234); /* Green background color */
+  padding: 22px; /* Padding inside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Team Member Card Styling */
+.team-member-card {
+  background-color: #1e421f; /* White background for individual cards */
+  overflow: hidden; /* Hide overflow to maintain rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease; /* Smooth animation on hover */
+}
+
+.team-member-card:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.team-member-card img {
+  border-bottom: 4px solid rgb(236, 234, 234); /* Green border below images */
+  height: auto; /* Maintain the aspect ratio */
+  border-bottom: 4px solid rgb(236, 234, 234); 
+}
+
+
+.team-member-card .w3-container {
+  padding: 16px; /* Padding inside the card content */
+  border-top: 5px solid #e7cd39c0; 
+
+}
+
+.team-member-card .w3-container {
+  border-top-width: 5px; 
+  border-top-color: #e7cd39c0;
+
+}
+
+/* Responsive Adjustments for small devices */
+@media (max-width: 768px) {
+  .team-card {
+    padding: 12px; /* Reduce padding on smaller screens */
+  }
+  
+  .team-member-card {
+    margin-bottom: 20px; /* Add spacing between team cards */
+  }
+  
+  .team-heading {
+    font-size: 2rem; /* Adjust heading size for tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .team-heading {
+    font-size: 1.8rem; /* Further adjust heading size for mobile devices */
+  }
+
+  .team-card {
+    padding: 10px; /* Further reduce padding on smaller screens */
+  }
+
+  .w3-col {
+    width: 100%; /* Make each team member card take up full width on mobile */
+    margin-bottom: 20px; /* Add space between stacked cards */
+  }
+  
+  .team-member-card {
+    padding: 0; /* Remove extra padding for smaller screens */
+  }
+
+  .team-member-card img {
+    border-bottom-width: 2px; /* Adjust border for smaller screens */
+  }
+
+  .team-member-card .w3-container {
+    padding: 10px; /* Reduce padding inside the card content */
+  }
+}
+
+
+
+
+/* ------------------------------------------ Africa Day Preview Styling ------------------------------------*/
+
+.africa-day-preview-section {
+  background-color: #252525; /* Dark green background */
+  color: white;
+  padding: 40px 0; /* Remove extra padding */
+  border-top: 5px solid #e7cd39c0; /* Adjustable border at the top */
+  border-bottom: 5px solid #e7cd39c0; /* Adjustable border at the bottom */
+  margin-bottom: 90px;
+
+
+}
+
+/* Allows easy adjustments for the border */
+.africa-day-preview-section {
+  border-top-width: 5px; /* Adjustable height of the border */
+  border-top-color: #e7cd39c0; /* Adjustable color of the border */
+
+  border-bottom-width: 5px; /* Adjustable height of the border */
+  border-bottom-color: #e7cd39c0; /* Adjustable color of the border */
+}
+
+.africa-day-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto; /* Auto height to allow content to adjust */
+  min-height: 60vh; /* Set a minimum height to avoid shrinking too much */
+
+}
+
+.africa-day-image {
+  flex: 1; /* Image takes half the screen */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the image */
+}
+
+.africa-day-image img {
+  width: auto; /* Allow image width to adjust automatically */
+  height: 90%; /* Ensure the image height is relative to the card */
+  max-height: 70vh; /* Ensure it never exceeds the viewport height */
+  object-fit: cover; /* Ensure the image fills the height properly */
+  margin-left: 10px;
+}
+
+.africa-day-text {
+  flex: 1; /* Text area takes the other half */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  text-align: left;
+}
+
+.africa-day-text h1 {
+  color: white;
+}
+
+.africa-day-text p {
+  color: rgb(243, 242, 242);
+  padding-bottom: -30px;
+}
+
+/* SLIDESHOW container with white background */
+/* Full-width blurred background image */
+.slideshow-background {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(0px);
+  z-index: 0;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 30px 20px;
+  text-align: center;
+  z-index: 1; /* Ensure content is above background */
+  box-sizing: border-box; /* Ensure padding doesn't expand width */
+  opacity: 1.0; /* Adjustable opacity for the entire card */
+}
+
+/* Centered slide content */
+.slide-card {
+  display: none;
+  width: 100%;
+  max-width: 100%;
+}
+
+.slide-card.active {
+  display: block;
+  animation: fade 1.5s ease;
+}
+
+.slide-card h2 {
+  font-size: 46px;
+  font-weight: bold;
+  color: #b19600c0;
+  margin-bottom: 20px;
+}
+
+.slide-card p {
+  font-size: 18px;
+  color: rgb(53, 53, 53);
+  line-height: 1.6;
+  max-width: 800px; /* Keeps text centered without stretching too wide */
+  margin: 0 auto;
+}
+
+/* Fade animation */
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Navigation dots */
+.dot-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #b19600c0;
+}
+
+
+
+
+
+.africa-day-preview-section .more-btn {
+  padding: 11px 24px; /* Button padding */
+  font-size: 20px; /* Font size */
+  background-color: #357037; /* Green background */
+  color: white; /* White text color */
+  border: 2px solid #244d26; /* Green border */
+  font-weight: bold;
+  border-radius: 8px; /* Optional: Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  display: inline-block; /* Makes the button as wide as its content */
+  width: auto; /* Auto width to fit content */
+  max-width: 170px; /* Limit the maximum width */
+  text-align: center; /* Center the button text */
+  text-decoration: none; /* Remove underline */
+
+}
+
+.africa-day-preview-section .more-btn:hover {
+  background-color: #388e3c; /* Lighter green when hovered */
+}
+
+
+
+
+
+
+/* Responsive Promo Section */
+@media (max-width: 600px) {
+  .africa-day-wrapper {
+    flex-direction: column; /* Stack text and image vertically on small screens */
+    height: auto;
+  }
+
+  .africa-day-image, .africa-day-text {
+    flex: none;
+    width: 100%;
+    text-align: center; /* Center text */
+  }
+
+  .africa-day-image img {
+    width: 93%;
+    height: auto; /* Make the image responsive for smaller screens */
+  }
+
+  .africa-day-text {
+    padding: 10px 0; /* Further reduce padding on mobile */
+    margin: 10px 0; /* Add some spacing on smaller screens */
+    margin-left: 45px;
+    font-size: 13px;
+    width: 80%;
+  }
+
+  .africa-day-preview-section .more-btn {
+
+    margin-left: 110px;
+
+  }
+}
+
+/* ---------------------------------------- Other events  Styling ----------------------------------------- */
+
+.other-events-section {
+  /* /* background-color: transparent;
+  padding: 88px 16px; */
+  color: rgb(255, 255, 255);
+  background-color: #ffffff;
+  background-image: url('/images/doodlebackground.jpg'); /* Add the background image */
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* Optional */
+  background-repeat: no-repeat;
+  margin-bottom: 120px;
+}
+
+.other-events-section h1 {
+  font-weight: bold; /* Make the ABOUT US heading bold */
+  color: rgb(59, 59, 59); /* Ensure the heading is white */
+
+}
+/* Other Events Heading Styling */
+.other-events-heading {
+  text-align: left; /* Center align the heading */
+  font-size: 2rem; /* Adjust the font size */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 30px; /* Space below the heading */
+  color: #000000; /* Text color */
+}
+
+/* Responsive Adjustments for Heading */
+@media (max-width: 600px) {
+  .other-events-heading {
+      font-size: 2rem;
+      text-align: center;
+  }
+}
+
+
+/* Other Events Card Styling */
+.other-events-card {
+  background-color: rgb(236, 234, 234); /* Green background color */
+  padding: 22px; /* Padding inside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: row; /* Place items in a row (image and text side by side) */
+  align-items: center; /* Vertically center the items */
+}
+
+/* Make image1 adjustable */
+.other-events-image1 {
+    width: 700px; /* Default width of the image */
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 5px; /* Add spacing between image and text */
+}
+/* Make image2 adjustable */
+.other-events-image2 {
+  width: 880px; /* Default width of the image */
+  max-width: 100%; /* Make sure the image doesn't exceed its container */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 5px; /* Add spacing between image and text */
+}
+
+
+/* Adjustments for Mobile Screens */
+@media (max-width: 768px) {
+  .other-events-card {
+      flex-direction: column; /* Stack content vertically */
+      text-align: center;
+  }
+
+  .other-events-image1,
+  .other-events-image2 {
+      width: 100%; /* Image takes full width on smaller screens */
+      margin-left: 0;
+      margin-top: 15px;
+  }
+}
+
+/* Smaller Mobile Screens (max-width: 600px) */
+@media (max-width: 600px) {
+  .other-events-card {
+      padding: 15px; /* Reduced padding for smaller screens */
+  }
+  
+  .other-events-image1,
+  .other-events-image2 {
+      width: 100%;
+      margin-left: 0;
+  }
+  
+  .other-events-heading {
+      font-size: 1.2rem; /* Slightly smaller heading for mobile */
+  }
+}
+
+
+
+/* ------------------------------------------- Our partners section -------------------------------------------- */
+
+.our-partners-quote {
+  text-align: center; /* Center the text */
+  margin-bottom: 80px; /* Space below the quote */
+
+}
+
+.our-partners-quote p {
+  font-size: 1rem; /* Adjust font size as needed */
+  color: rgb(65, 65, 65); /* Text color */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+}
+
+/* Flexbox layout for the partner logos */
+.our-partners-row {
+  display: flex;
+  justify-content: space-around; /* Evenly distribute the images horizontally */
+  align-items: center;
+  flex-wrap: wrap; /* Wrap images if they don't fit in one row */
+  gap: 4px; /* Add space between images */
+}
+
+/* Individual images styling */
+.our-partners-row img {
+  max-width: 140px; /* Set a maximum width for images */
+  width: 100%; /* Ensure images fill the container */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Animation effect for hover */
+}
+
+/* Adjust image size and layout for smaller screens */
+@media (max-width: 768px) {
+  .our-partners-row {
+      justify-content: center; /* Center images on smaller screens */
+  }
+
+  .our-partners-row img {
+      max-width: 80px; /* Reduce the maximum width of images for smaller screens */
+  }
+
+  .vertical-line {
+    height: 80px; /* Adjust line height for smaller screens */
+  }
+}
+
+/* Hover effect for partner logos */
+.our-partners-row img:hover {
+  transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+.vertical-line {
+  width: 2px; /* Adjust the line width */
+  height: 100px; /* Adjust the line height */
+  background-color: rgb(205, 205, 205); /* Line color */
+  margin: 0 5px; /* Spacing between the line and images */
+}
+
+
+
+
+/* ------------------------------------------------ CONTACT US ------------------------------------------------ */
+
+/* Contact Form Styling */
+
+.contact-us-section {
+  background-color: #1e421f;
+  padding: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #e7cd39c0;
+  border-bottom: 5px solid #e7cd39c0;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* This spaces the two columns (details & form) */
+  align-items: flex-start;
+}
+
+/* Left-side contact details */
+.contact-details {
+  width: 40%; /* Left section width */
+}
+
+.contact-details h1 {
+  color: #e9e9e9;
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.contact-details p {
+  color: #c5c5c5;
+  font-size: 1.0rem;
+  margin: 16px 0;
+}
+
+/* Right-side form */
+.contact-form {
+  width: 55%; /* Right section width */
+  display: flex;
+  justify-content: flex-end; /* Align the form elements to the right */
+}
+
+.contact-form form {
+  width: 100%;
+  max-width: 1000px; /* Set a max width for form */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input and Textarea Styles */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #4fa153;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+/* Button Styles */
+.contact-form button {
+  background-color: #357037;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid #244d26; /* Green border */
+  border-radius: 8px; /* Optional: Rounded corners */
+  cursor: pointer;
+  margin-top: 15px;
+  align-self: flex-end; /* Align button to the right */
+  text-align: center; /* Center the button text */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+.contact-form button:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-us-section {
+      flex-direction: column; /* Stack columns on smaller screens */
+      align-items: center;
+  }
+
+  .contact-details,
+  .contact-form {
+      width: 100%; /* Full width on small screens */
+      text-align: center; /* Center text and form */
+  }
+
+  .contact-form form {
+      max-width: 100%; /* Full width form on small screens */
+  }
+
+  .contact-form button {
+      align-self: center; /* Center button on small screens */
+  }
+}
+
+
+
+
+
+/* -----------------------meeting section---------------------- */
+/* Meeting Section Styling */
+.meeting-section {
+  padding: 40px 16px;
+  margin-top: 50px; /* Adds space between the slideshow and meeting section */
+
+}
+
+.meeting-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.message-text {
+  flex: 1; /* Allow text to take up the remaining space */
+  max-width: 50%; /* Limit text width to balance with the image */
+}
+
+.message-text h2 {
+  font-size: 45px;
+  color: #3a3a3a;
+}
+
+.message-text h5,
+.message-text p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Custom bullet points for paragraphs */
+.message-text p {
+  position: relative; /* Allows positioning of the bullet */
+  margin-top: 20px;
+  padding-left: 20px; /* Adds space for the bullet */
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Custom bullet points for paragraphs - flipped triangle */
+.message-text p::before {
+  content: ""; /* Empty content to create the bullet */
+  position: absolute;
+  left: 0; /* Position bullet at the start of the paragraph */
+  top: 0.5em; /* Center the bullet vertically with text */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px; /* Adjusted to flip the triangle */
+  border-color: transparent transparent transparent green; /* Makes the green point face right */
+}
+
+
+.message-text h5 {
+  position: relative; 
+  padding-left: 5px; 
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+/* .message-text h5::before {
+  content: ""; 
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 10px;
+  border-color: transparent transparent transparent green;
+} */
+
+.custom-heading-line-darker {
+  border-top: 3px solid #e7cd39c0;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.message-image {
+  flex-shrink: 0; /* Prevent the image from shrinking */
+  max-width: 45%; /* Keep image large but balanced with text */
+  margin-left: 60px;
+  margin-top: 45px;
+}
+
+.grid-image {
+  width: 100%; /* Allow the image to expand to the container width */
+  height: auto; /* Maintain aspect ratio */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .meeting-content {
+    flex-direction: column; /* Stack text and image */
+  }
+
+  .message-text,
+  .message-image {
+    max-width: 100%;
+  }
+}
+
+
+
+
+/* --------------------------------- Quotes from members ----------------------------- */
+.quotes-section {
+  position: relative;
+  padding: 60px 16px;
+  display: flex;
+  flex-wrap: wrap; /* Ensure wrapping for smaller screens */
+  gap: 30px; /* Space between cards */
+  justify-content: center;
+  align-items: stretch; /* Stretch cards to equal height */
+  overflow: hidden;
+
+}
+
+/* Background image for quotes section */
+.quotes-section::before {
+  content: ""; /* Empty content for pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/image30.JPG'); /* Same background image */
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px); /* Apply blur effect */
+  z-index: 0; /* Place the background behind content */
+  opacity: 0.8; /* Slight transparency */
+}
+
+/* Gradient overlay */
+.quotes-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Below content but above the image */
+}
+
+/* Heading Styling */
+.quotes-heading-container {
+  width: 100%; /* Full-width container */
+  display: flex; /* Flexbox for alignment */
+  justify-content: center; /* Center-align heading */
+  margin-bottom: 1px; /* Space between heading and the cards */
+}
+
+.quotes-heading {
+  text-align: center; /* Center-align the text */
+  font-size: 24px; /* Default font size */
+  color: #333; /* Dark text color */
+  font-weight: bold; /* Emphasize the heading */
+}
+
+@media (max-width: 768px) {
+  .quotes-heading {
+    font-size: 24px; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .quotes-heading {
+    font-size: 20px; /* Adjust font size further for very small screens */
+  }
+}
+
+/* Quote Cards Section */
+.quote-cards-container {
+  display: flex; /* Use Flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 30px; /* Space between cards */
+  justify-content: center; /* Center-align the cards */
+}
+
+.quote-card {
+  margin-top: 70px; /* Adds space between the slideshow and meeting section */
+  flex: 1 1 300px; /* Flex property ensures equal width, minimum size of 300px */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  gap: 20px; /* Space between image and text */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 200px; /* Minimum height to ensure equal size */
+}
+
+.quote-card:hover {
+  transform: translateY(-10px); /* Lift the card */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+}
+
+
+.profile-image {
+  flex-shrink: 0; /* Prevent the image from shrinking */
+  display: flex;
+  align-items: center;
+}
+
+.round-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 8%; /* Circular profile images */
+  object-fit: cover;
+  border: 1px solid #f3f3f3; /* White border around the image */
+}
+
+/* Decorative line */
+.decorative-line {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #b19600c0, #e7cd39); /* Gradient for the line */
+}
+
+.quote-content {
+  flex-grow: 1; /* Stretch the text to fill remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the text vertically */
+  max-width: 80%; /* Ensure the text area remains balanced */
+}
+
+.quote-text {
+  font-size: 16px;
+  font-style: italic; /* Italic for the quote */
+  line-height: 1.6;
+  color: #555; /* Muted text color */
+  position: relative;
+}
+
+.quote-text::before {
+  content: "“"; /* Opening quotation mark */
+  font-size: 50px;
+  color: #b19600c0; /* Accent color for the quotation mark */
+  position: absolute;
+  top: -20px;
+  left: -23px;
+}
+
+.quote-author {
+  font-size: 16px;
+  font-weight: bold; /* Bold for emphasis */
+  color: #333; /* Darker text for the author name */
+  text-align: right;
+}
+
+/* --------- Quote Modal styling ----------- */
+/* Modal styling */
+.quote-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.5s ease; /* Smooth fade-in/out transition */
+}
+
+.quote-modal.show {
+  display: flex; /* Show the modal */
+  opacity: 1; /* Fully visible */
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  max-width: 600px;
+  width: 80%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: scaleIn 0.4s ease; /* Add a scaling animation */
+}
+
+/* Scaling animation for modal content */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9); /* Slightly smaller */
+    opacity: 0; /* Invisible */
+  }
+  to {
+    transform: scale(1); /* Original size */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Close button hover effect */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: red;
+}
+
+
+
+
+
+
+
+/* ---------------------------------------------------- Footer ----------------------------------------------- */
+
+/* Footer Styling */
+.custom-footer {
+  background-color: #242424; /* Dark Green Background */
+  padding: 20px 0; /* Adjustable Padding for Height */
+  text-align: center;
+}
+
+.custom-footer p {
+  color: #a8a8a8; /* White Text */
+  font-size: 16px; /* Font Size for the Text */
+  margin: 0; /* Remove Default Margin */
+}
+
+.custom-footer .social-icons i {
+  font-size: 44px; /* Icon Size */
+  color: #a9a9a9; /* Grey Color for the Icons */
+  margin: 0 10px; /* Spacing Between Icons */
+  transition: color 0.3s ease-in-out; /* Smooth Transition for Hover */
+}
+
+.custom-footer .social-icons i:hover {
+  color: #ffffff; /* Change to White on Hover */
+}
+
+
+
+
+
+/* ------------------------   LINES   ------------------------ */
+
+/* Custom HR style */
+.custom-hr {
+  border: none; /* Remove default border */
+  border-top: 2px solid #e7cd39c0; /* Set the line color (e.g., gold) */
+  width: 80%; /* Adjust the width to control the length */
+  height: 2px; /* Adjust the height (thickness) */
+  margin: 7px 0; /* Space around the line */
+}
+
+/* Adjust HR style for mobile screens */
+@media (max-width: 600px) {
+  .custom-hr {
+    width: 80%; /* Make the line wider (80%) for smaller screens */
+    margin: 10px auto; /* Center the line and adjust spacing */
+  }
+}
+
+
+/* Custom HR style for headings */
+.custom-heading-line-lighter {
+  border: none; /* Remove default border */
+  border-top: 3px solid #d5d5d5c0; /* Set the line color (gold) */
+  width: 45%; /* Default width */
+  height: 3px; /* Adjust the height (thickness) */
+  margin: 14px 0; /* Space above and below the line */
+}
+
+/* Adjust HR style for smaller screens */
+@media (max-width: 600px) {
+  .custom-heading-line-lighter {
+    width: 80%; /* Make the line wider for smaller screens */
+    margin: 10px auto; /* Center the line and adjust spacing */
+  }
+}
+
+/* Custom HR style aligned to the right */
+.custom-heading-line-lighter-right {
+  border: none; /* Remove default border */
+  border-top: 3px solid #d5d5d5c0; /* Set the line color */
+  width: 45%; /* Default width */
+  height: 3px; /* Adjust the height (thickness) */
+  margin: 14px 0; /* Space above and below the line */
+  float: right; /* Align the line to the right */
+}
+
+/* Clear floats after the HR */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Adjust HR style for smaller screens */
+@media (max-width: 600px) {
+  .custom-heading-line-lighter-right {
+    width: 80%; /* Make the line wider for smaller screens */
+    margin: 10px auto; /* Adjust margin for smaller screens */
+    float: none; /* Disable right alignment on smaller screens */
+  }
+}
+
+
+/* Custom HR style for headings */
+.custom-heading-line-darker {
+  border: none; /* Remove default border */
+  border-top: 3px solid #e7cd39c0; /* Set the line color (gold) */
+  width: 60%; /* Default width */
+  height: 3px; /* Adjust the height (thickness) */
+  margin: 8px 0; /* Space above and below the line */
+}
+
+/* Adjust HR style for smaller screens */
+@media (max-width: 600px) {
+  .custom-heading-line-darker {
+    width: 80%; /* Make the line wider for smaller screens */
+    margin: 10px auto; /* Center the line and adjust spacing */
+  }
+}
+
+
+
+
+
+
+/* ------------------------------------------- AFRICA DAY PAGE ---------------------------------------------- */
+
+/* ------------------ Header Section - Adjust Image Cropping ----------------- */
+.africa-day-header-section img {
+  width: 100vw;
+  height: 100vh; /* Limit the height to 70% of the viewport */
+  object-fit: cover; /* Ensures the image covers the area */
+  object-position: center -15%; /* Move the image 20% down vertically */
+  margin: 0; /* Remove any margins */
+
+}
+
+/* Header section with gradient overlay */
+.africa-day-header-section {
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInSlideUp 1.5s ease-out forwards;
+}
+
+.africa-day-header-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%; /* Adjust the height of the gradient as needed */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+/* Bolden the H1 text in the header */
+.africa-day-header-section h1 {
+  font-weight: 500; /* Maximum boldness */
+  letter-spacing: 2px; /* Optional: add letter spacing for effect */
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInSlideUpText 1.5s ease-out forwards;
+  animation-delay: 0.5s; /* Delays the text animation slightly */
+}
+
+.w3-display-bottomleft {
+  bottom: 20px; /* Adjust the position of H1 text */
+  left: 20px;
+}
+
+/* Animation for the image */
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for the text */
+@keyframes fadeInSlideUpText {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ---------------------------- Preview Section -------------------------------- */
+
+.africa-day2-preview-section {
+  background-color: #252525; /* Dark background */
+  width: 100vw;
+  color: white;
+  padding: 40px 0; /* Remove extra padding */
+  border-top: 5px solid #e7cd39c0; /* Adjustable border at the top */
+  border-bottom: 5px solid #e7cd39c0; /* Adjustable border at the bottom */
+  margin-bottom: 90px;
+  margin: 0; /* Remove any margins */
+
+}
+
+/* Africa Day 2 Preview Section - Image Adjustments */
+.africa-day2-image img {
+  width: 80%; /* Make the image fill the container */
+  max-width: 500px; /* Limit max width */
+  height: auto; /* Keep height proportional */
+  object-fit: contain; /* Ensures image is not cropped */
+  /* margin-left: auto; Center the image horizontally */
+  margin-right: 60px;
+}
+
+/* Optional: Add different positions for left/right */
+.africa-day2-image-left img {
+  object-position: left;
+}
+
+.africa-day2-image-right img {
+  object-position: right;
+}
+
+
+/* Allows easy adjustments for the border */
+.africa-day2-preview-section {
+  border-top-width: 5px; /* Adjustable height of the border */
+  border-top-color: #e7cd39c0; /* Adjustable color of the border */
+
+  border-bottom-width: 5px; /* Adjustable height of the border */
+  border-bottom-color: #e7cd39c0; /* Adjustable color of the border */
+}
+
+
+
+/* -------------- Images and content -------------------- */
+.africa-day2-wrapper {
+  max-width: 100vw; /* Ensure the wrapper uses the full width */
+  display: flex;
+  justify-content: space-between; /* Adjust content spacing */
+  align-items: center;
+  margin-bottom: 110px; /* Add spacing between sections */
+}
+
+.africa-day2-image {
+  flex: 1; /* Image takes half the screen */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the image */
+}
+
+.africa-day2-image img {
+  width: 100%; /* Ensure image takes full width */
+  height: auto; /* Allow the height to adjust proportionally */
+  max-height: 70vh; /* Ensure it never exceeds the viewport height */
+  object-fit: cover; /* Ensure the image fills the height properly */
+  margin-left: 30px;
+}
+
+.africa-day3-image {
+  flex: 1; /* Image takes half the screen */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the image */
+}
+
+.africa-day3-image img {
+  width: 80%; /* Ensure image takes full width */
+  height: auto; /* Allow the height to adjust proportionally */
+  max-height: 100vh; /* Ensure it never exceeds the viewport height */
+  object-fit: cover; /* Ensure the image fills the height properly */
+  margin-left: -10px;
+}
+
+.africa-day2-text {
+  flex: 1; /* Text area takes the other half */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  text-align: left;
+  font-weight: bold;
+}
+
+.africa-day2-text h2 {
+  color: white;
+  font-weight: bold;
+  font-size: 43px;
+}
+
+.africa-day2-text p {
+  color: rgb(243, 242, 242);
+  padding-bottom: -30px;
+}
+
+
+
+/* ----------------- Second Image and content ---------- */
+.africa-day2-text, .africa-day2-text2 {
+  flex: 1;
+  padding: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.africa-day2-text h3 {
+  color: white;
+  font-weight: bold;
+  font-size: 33px;
+}
+
+.africa-day2-image, .africa-day2-image2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%; /* Limit max width */
+}
+
+.africa-day2-image img, .africa-day2-image2 img {
+  width: 100%;
+  height: auto;
+  max-width: 700px; /* Allow image to resize */
+  object-fit: cover;
+}
+
+/* Second image on the right */
+.africa-day2-wrapper:nth-child(2) {
+  flex-direction: row-reverse; /* Reverse layout: image on the right */
+}
+
+/* Arrow styling */
+.down-arrow {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.down-arrow i {
+  font-size: 30px;
+  color: #e7cd39;
+  cursor: pointer;
+}
+
+
+
+
+
+/* Responsive layout for both first and second image/text sections */
+@media (max-width: 768px) {
+  .africa-day2-wrapper {
+      flex-direction: column; /* Stack text and images vertically */
+      margin-bottom: 40px; /* Space between sections */
+      text-align: center; /* Center text and images */
+  }
+
+  /* Larger first image on mobile */
+  .africa-day2-image img {
+      width: 95%; /* Increase the width for the first image */
+      max-width: 95%; /* Ensure it takes up more space */
+      height: auto; /* Maintain proportional height */
+      margin: 0 auto; /* Center the image */
+  }
+
+  /* Full-width second image on mobile */
+  .africa-day2-image2 img {
+      width: 100%; /* Full width */
+      max-width: 100%; /* Ensure it doesn’t exceed the container width */
+      height: auto; /* Maintain proportional height */
+      margin: 0 auto; /* Center the image */
+  }
+
+  /* Responsive text adjustments for both sections */
+  .africa-day2-text, .africa-day2-text2 {
+      padding: 10px 0; /* Reduce padding for a better fit */
+      text-align: center; /* Center text */
+      margin: 10px 0;
+      width: 100%; /* Ensure the text takes up full width */
+  }
+}
+
+/* More compact layout for screens below 600px */
+@media (max-width: 600px) {
+  .africa-day2-wrapper {
+      flex-direction: column; /* Stack everything vertically */
+      margin-bottom: 30px; /* Less margin on smaller screens */
+  }
+
+  /* Larger first image on smaller screens */
+  .africa-day2-image img {
+      width: 100%; /* Increase size for smaller screens */
+      height: auto; /* Maintain proportional height */
+      margin: 0 auto; /* Center image */
+  }
+
+  /* Ensure second image is still full-width */
+  .africa-day2-image2 img {
+      width: 93%; /* Full width but with some margin */
+      margin: 0 auto; /* Center image */
+  }
+
+  /* Smaller text on mobile */
+  .africa-day2-text, .africa-day2-text2 {
+      font-size: 13px; /* Smaller text on mobile */
+      margin-left: 0; /* Align properly on mobile */
+      width: 100%; /* Ensure text takes full width */
+  }
+
+  /* Adjust spacing for arrow icon */
+  .down-arrow i {
+      font-size: 25px; /* Slightly smaller arrow */
+  }
+}
+
+
+
+/* Custom hover effect for images in the gallery section */
+.gallery-section .gallery-img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.gallery-section .gallery-img:hover {
+  transform: scale(1.05); /* Slight zoom-in */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for emphasis */
+}
+
+
+/* Bottom triangle styling (mirrored horizontally) */
+.triangle-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 80px solid #2c2c2c; /* Triangle color */
+  border-left: 80px solid transparent; /* Transparent side */
+  z-index: 10;
+}
+
+/* Text inside the triangle */
+.triangle-footer-text {
+  position: absolute;
+  bottom: -70px; /* Adjust for vertical centering */
+  right: 7px; /* Adjust for horizontal centering */
+  transform: rotate(-45deg); /* Rotate text to align with the flipped triangle */
+  color: #fff; /* Text color */
+  font-size: 10px; /* Font size */
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+  z-index: 11;
+  text-align: center;
+}
+
+
+
+
+
